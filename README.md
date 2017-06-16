@@ -11,5 +11,5 @@
 5.  WB3 - NodeBB, Wiki.js
 6.  DB1 - MySQL, MongoDB, Redis
 7.  DB2 - MySQL, MongoDB
-8.  DB3 - MySQL, MongoDB
+8.  DB3 - MySQL, MongoDB, GitLab
 9.  LOG - Elasticsearch, Logstash, Kibana
