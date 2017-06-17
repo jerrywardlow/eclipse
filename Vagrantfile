@@ -3,7 +3,7 @@
 class VirtualMachine
   attr_accessor :hostname, :box, :cpus, :memory
   def initialize(options ={})
-    self.hostname = options[:hostname] || 'unnamed'
+    self.hostname = options[:hostname]
     self.box = options[:box] || 'ubuntu/xenial64'
     self.cpus = options[:cpus] || '1'
     self.memory = options[:memory] || '512'
