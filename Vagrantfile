@@ -1,6 +1,6 @@
 # vi: set ft=ruby:
 
-class VirtualMachine
+class VM
   attr_accessor :hostname, :box, :cpus, :memory
   def initialize(options ={})
     self.hostname = options[:hostname]
@@ -10,30 +10,30 @@ class VirtualMachine
   end
 end
 
-virtual_machines = [
-  VirtualMachine.new(hostname: 'LB1', box: 'centos/7'),
-  VirtualMachine.new(hostname: 'LB2', box: 'centos/7'),
-  VirtualMachine.new(hostname: 'WB1'),
-  VirtualMachine.new(hostname: 'WB2'),
-  VirtualMachine.new(hostname: 'WB3'),
-  VirtualMachine.new(hostname: 'DB1'),
-  VirtualMachine.new(hostname: 'DB2'),
-  VirtualMachine.new(hostname: 'DB3'),
-  VirtualMachine.new(hostname: 'LOG', box: 'centos/7'),
+nodes  = [
+  VM.new(hostname: 'lb1', box: 'centos/7'),
+  VM.new(hostname: 'lb2', box: 'centos/7'),
+  VM.new(hostname: 'wb1'),
+  VM.new(hostname: 'wb2'),
+  VM.new(hostname: 'wb3'),
+  VM.new(hostname: 'db1'),
+  VM.new(hostname: 'db2'),
+  VM.new(hostname: 'db3'),
+  VM.new(hostname: 'log', box: 'centos/7'),
 ]
 
 Vagrant.configure("2") do |config|
-  virtual_machines.each do |machine|
-    config.vm.define machine.hostname do |machine_config|
-      machine_config.vm.box = machine.box
-      machine_config.vm.hostname = machine.hostname
-      machine_config.vm.network :public_network
-      machine_config.vm.provider :virtualbox do |vbox|
-        vbox.name = machine.hostname
-        vbox.memory = machine.memory
-        vbox.cpus = machine.cpus
+  nodes.each do |node|
+    config.vm.define node.hostname do |node_config|
+      node_config.vm.box = node.box
+      node_config.vm.hostname = node.hostname
+      node_config.vm.network :public_network
+      node_config.vm.provider :virtualbox do |vbox|
+        vbox.name = node.hostname
+        vbox.memory = node.memory
+        vbox.cpus = node.cpus
       end
-      #machine_config.vm.provision "shell", path: machine[:provisioner_path]
+      #node_config.vm.provision "shell", path: node[:provisioner_path]
     end
   end
 end
