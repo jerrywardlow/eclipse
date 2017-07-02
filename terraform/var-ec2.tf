@@ -17,3 +17,13 @@ variable "db-instance-type" {
     description = "EC2 instance type for database servers"
     default = "t2.micro"
 }
+
+variable "lb-instance-type" {
+    description = "EC2 instance type for load balancers" 
+    default = "t2.micro"
+}
+
+variable "log-instance-type" {
+    description = "EC2 instance type for logging server" 
+    default = "t2.micro"
+}
