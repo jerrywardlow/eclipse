@@ -33,3 +33,38 @@ resource "aws_instance" "db" {
         group = "eclipse-ec2"
     }
 }
+
+# Load balancers
+
+resource "aws_instance" "lb" {
+    count = 2
+    ami = "${var.rhel-ami}"
+    instance_type = "${var.lb-instance-type}"
+    subnet_id = "${aws_subnet.public.id}"
+    vpc_security_group_ids = ["pass"]
+    key_name = "${aws_key_pair.eclipse.key_name}"
+
+    user_data = "${data.template_file.user_data.rendered}"
+
+    tags = {
+        Name = "lb${count.index}"
+        group = "eclipse-ec2"
+    }
+}
+
+# Logging server
+
+resource "aws_instance" "log" {
+    ami = "${var.rhel-ami}"
+    instance_type = "${var.log-instance-type}"
+    subnet_id = "${aws_subnet.public.id}"
+    vpc_security_group_ids = ["pass"]
+    key_name = "${aws_key_pair.eclipse.key_name}"
+
+    user_data = "${data.template_file.user_data.rendered}"
+
+    tags = {
+        Name = "log"
+        group = "eclipse-ec2"
+    }
+}
