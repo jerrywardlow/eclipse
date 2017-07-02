@@ -1,5 +1,7 @@
 ### Spec
 
+![Eclipse](eclipse.png)
+
 1.  LB1 - CentOS - HAProxy
 2.  LB2 - CentOS - HAProxy
 3.  WB1 - Ubuntu - Wordpress, Magento
