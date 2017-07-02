@@ -1,14 +1,14 @@
-# Web ervers
+# Web servers
 
 resource "aws_instance" "web" {
     count = 3
-    ami = ""
-    instance_type = ""
-    subnet_id = ""
-    vpc_security_group_ids = [""]
-    key_name = ""
+    ami = "${var.ubuntu-ami}"
+    instance_type = "${var.web-instance-type}"
+    subnet_id = "pass"
+    vpc_security_group_ids = ["pass"]
+    key_name = "pass"
 
-    user_date = ""
+    user_data = "pass"
 
     tags = {
         Name = "wb${count.index}"
