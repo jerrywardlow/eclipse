@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
     vpc_security_group_ids = ["pass"]
     key_name = "${aws_key_pair.eclipse.key_name}"
 
-    user_data = "pass"
+    user_data = "${data.template_file.user_data.rendered}"
 
     tags = {
         Name = "wb${count.index}"
@@ -26,7 +26,7 @@ resource "aws_instance" "db" {
     vpc_security_group_ids = ["pass"]
     key_name = "${aws_key_pair.eclipse.key_name}"
 
-    user_data = "pass"
+    user_data = "${data.template_file.user_data.rendered}"
 
     tags = {
         Name = "db${count.index}"
