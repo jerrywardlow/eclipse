@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
     instance_type = "${var.web-instance-type}"
     subnet_id = "${aws_subnet.public.id}"
     vpc_security_group_ids = ["pass"]
-    key_name = "pass"
+    key_name = "${aws_key_pair.eclipse.key_name}"
 
     user_data = "pass"
 
