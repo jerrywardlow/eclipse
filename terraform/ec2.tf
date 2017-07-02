@@ -5,7 +5,7 @@ resource "aws_instance" "web" {
     ami = "${var.ubuntu-ami}"
     instance_type = "${var.web-instance-type}"
     subnet_id = "${aws_subnet.public.id}"
-    vpc_security_group_ids = ["pass"]
+    vpc_security_group_ids = ["${aws_security_group.eclipse.id}", "${aws_security_group.internal.id}"]
     key_name = "${aws_key_pair.eclipse.key_name}"
 
     user_data = "${data.template_file.user_data.rendered}"
@@ -23,7 +23,7 @@ resource "aws_instance" "db" {
     ami = "${var.ubuntu-ami}"
     instance_type = "${var.db-instance-type}"
     subnet_id = "${aws_subnet.public.id}"
-    vpc_security_group_ids = ["pass"]
+    vpc_security_group_ids = ["${aws_security_group.eclipse.id}", "${aws_security_group.internal.id}"]
     key_name = "${aws_key_pair.eclipse.key_name}"
 
     user_data = "${data.template_file.user_data.rendered}"
@@ -41,7 +41,7 @@ resource "aws_instance" "lb" {
     ami = "${var.rhel-ami}"
     instance_type = "${var.lb-instance-type}"
     subnet_id = "${aws_subnet.public.id}"
-    vpc_security_group_ids = ["pass"]
+    vpc_security_group_ids = ["${aws_security_group.eclipse.id}", "${aws_security_group.internal.id}"]
     key_name = "${aws_key_pair.eclipse.key_name}"
 
     user_data = "${data.template_file.user_data.rendered}"
@@ -58,7 +58,7 @@ resource "aws_instance" "log" {
     ami = "${var.rhel-ami}"
     instance_type = "${var.log-instance-type}"
     subnet_id = "${aws_subnet.public.id}"
-    vpc_security_group_ids = ["pass"]
+    vpc_security_group_ids = ["${aws_security_group.eclipse.id}", "${aws_security_group.internal.id}"]
     key_name = "${aws_key_pair.eclipse.key_name}"
 
     user_data = "${data.template_file.user_data.rendered}"
