@@ -12,3 +12,8 @@ variable "web-instance-type" {
     description = "EC2 instance type for web servers"
     default = "t2.micro"
 }
+
+variable "db-instance-type" {
+    description = "EC2 instance type for database servers"
+    default = "t2.micro"
+}
