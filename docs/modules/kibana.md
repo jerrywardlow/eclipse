@@ -1,4 +1,4 @@
-# HAProxy
+# Kibana
 
 ### Purpose
 
