@@ -4,7 +4,8 @@
 Search Engine
 
 ### Dependencies
-Logstash and Kibana
+* Logstash 
+* Kibana
 
 ### Configuration
 
