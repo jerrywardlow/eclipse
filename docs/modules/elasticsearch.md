@@ -1,8 +1,10 @@
 # Elastic Search
 
-### Purpose - Search engine
+### Purpose
+Search Engine
 
-### Dependencies - Logstash and Kibana
+### Dependencies
+Logstash and Kibana
 
 ### Configuration
 
