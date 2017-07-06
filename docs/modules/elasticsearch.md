@@ -1,1 +1,9 @@
-Elastic search is a search engine. The dependencies are: Logstash, and Kibana. 
+# Elastic Search
+
+### Purpose - Search engine
+
+### Dependencies - Logstash and Kibana
+
+### Configuration
+
+### Use
