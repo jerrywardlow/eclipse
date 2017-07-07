@@ -1,4 +1,4 @@
-# LogStash
+# Logstash
 
 ### Purpose
 

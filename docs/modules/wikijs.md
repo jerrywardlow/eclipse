@@ -1,4 +1,4 @@
-# WikiJS
+# Wiki.js
 
 ### Purpose
 

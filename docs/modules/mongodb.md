@@ -1,4 +1,4 @@
-# MongDB
+# MongoDB
 
 ### Purpose
 
