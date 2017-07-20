@@ -1,0 +1,21 @@
+#cloud-config
+users:
+  - name: deploy
+    gecos: Deploy User
+    groups: sudo
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    shell: /bin/bash
+    lock-passwd: false
+    passwd: 0AJWvkaQQLytY
+
+runcmd:
+  - mkdir -p /home/deploy/.ssh/
+  - touch /home/deploy/.ssh/authorized_keys
+  - curl https://github.com/jerrywardlow.keys >> /home/deploy/.ssh/authorized_keys
+  - curl https://github.com/Rickymare.keys >> /home/deploy/.ssh/authorized_keys
+  - curl https://github.com/yevgenybulochnik.keys >> /home/deploy/.ssh/authorized_keys
+  - chown -R deploy: /home/deploy/
+  - chmod 0700 /home/deploy/.ssh/
+  - chmod 0600 /home/deploy/.ssh/authorized_keys
+
+final_message: "Total time: $UPTIME"
